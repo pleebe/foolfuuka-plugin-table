@@ -1,0 +1,27 @@
+{
+  "name": "foolz/foolfuuka-plugin-table",
+  "type": "foolz-foolfuuka-plugin",
+  "version": "1.0.2",
+  "description": "Simple table view for threads. Modeled after 4chan /f/.",
+  "keywords": ["table"],
+  "homepage": "http://www.4plebs.org",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "4plebs",
+      "email": "admin@4plebs.org"
+    }
+  ],
+  "support": {
+    "email": "admin@4plebs.org",
+    "irc": "irc://irc.irchighway.net/fooldriver"
+  },
+  "require" : {
+    "foolz/plugin": "dev"
+  },
+  "extra": {
+    "name": "Table",
+    "slug": "table",
+    "module": "foolfuuka"
+  }
+}
