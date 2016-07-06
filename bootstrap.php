@@ -18,15 +18,10 @@ class HHVM_Table
             ->setCall(function ($plugin) {
                 /** @var Context $context */
                 $context = $plugin->getParam('context');
-                $context->getContainer()
-                    ->register('foolfuuka-plugin.table', 'Foolz\FoolFuuka\Plugins\Table\Model\Table')
-                    ->addArgument($context);
 
                 /** @var Autoloader $autoloader */
                 $autoloader = $context->getService('autoloader');
-                $autoloader->addClassMap([
-                    'Foolz\FoolFuuka\Controller\Chan\Table' => __DIR__.'/classes/controller/chan.php'
-                ]);
+                $autoloader->addClass('Foolz\FoolFuuka\Controller\Chan\Table', __DIR__ . '/classes/controller/chan.php');
 
                 Event::forge('Foolz\FoolFrame\Model\Context::handleWeb#obj.routing')
                     ->setCall(function ($result) use ($context) {
@@ -40,8 +35,8 @@ class HHVM_Table
 
                             $routes = $result->getObject();
                             $routes->getRouteCollection()->add(
-                                'foolfuuka.plugin.table.chan.radix.'.$radix->shortname, new Route(
-                                    '/'.$radix->shortname.'/table/{_suffix}',
+                                'foolfuuka.plugin.table.chan.radix.' . $radix->shortname, new Route(
+                                    '/' . $radix->shortname . '/table/{_suffix}',
                                     [
                                         '_controller' => '\Foolz\FoolFuuka\Controller\Chan\Table::*',
                                         '_default_suffix' => 'page',
